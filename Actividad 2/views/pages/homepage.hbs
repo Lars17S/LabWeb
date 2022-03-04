@@ -1,3 +1,36 @@
 <!-- views/pages/homepage.hbs -->
 <h1>Hello Node.js con Express</h1>
 <p>This is my first page</p>
+<ul>
+    {{#each products}}
+    <li>{{this.name}}</li>
+    {{/each}}
+</ul>
+<h1>{{user}}</h1>
+{{!-- <p>{{ products }}</p> --}}
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Created at</th>
+        <th>Updated at</th>
+    </tr>
+    {{#each products}}
+    
+    <tr>
+        <td>{{this.id}}</td>
+        <td><a href="products/{{this.id}}">{{this.name}}</a></td>
+        <td>{{this.price}}</td>
+        <td>{{this.description}}</td>
+        <td>{{this.created_at}}</td>
+        <td>{{this.updated_at}}</td>
+    </tr>
+    
+    {{/each}}
+</table>
+
+<a href="products/create">Add new product</a>
+
+<a href="/about">Learn about us</a>

@@ -11,8 +11,9 @@ exports.homepage = (req, res) => {
     .then((data) => {
       // Guardamos los productos en una variable
       let products = data;
+      let user = "lars"
       // Enviamos los datos a la vista
-      res.render('pages/homepage', { products: products });
+      res.render('pages/homepage', { products: products, user: user });
     });
 }
 
