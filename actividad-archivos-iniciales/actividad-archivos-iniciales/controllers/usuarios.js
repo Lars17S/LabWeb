@@ -1,4 +1,5 @@
 let Usuario = require("../models/usuario");
+let Reserva = require("../models/reserva");
 
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
@@ -110,5 +111,27 @@ module.exports = {
     } else {
       res.json({ error: "User email no existe" });
     }
+  },
+  reserve_get: function (req, res, next) {
+    res.render("usuarios/reserve", { errors: {}, usuario: new Usuario() });
+  },
+
+  reserve: function (req, res, next) {
+    Reserva.create(
+      {
+        desde: req.body.desde,
+        hasta: req.body.hasta,
+        bicicleta: req.body.bicicleta,
+        usuario: req.body.usuario,
+      },
+      function (err, nuevaReserva) {
+        if (err) {
+          console.log(err);
+          res.json({ error: "Error al crear la reserva" });
+        } else {
+          res.redirect("/usuarios");
+        }
+      }
+    );
   },
 };

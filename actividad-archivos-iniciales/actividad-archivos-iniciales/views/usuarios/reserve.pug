@@ -1,0 +1,40 @@
+extends ../layout 
+
+block content
+    a(href='/usuarios') Volver
+    br
+    h1 Reservar bici a usuario
+    form(action=`/usuarios/${usuario.id}/reserve` method='POST')
+        table.table 
+            tr 
+                td
+                    label(for='desde') Desde:
+                td
+                    input#desde(type='date' name='desde')
+                    if errors.desde
+                        small#desde.text-danger = errors.desde.message
+            tr
+                td
+                    label(for='hasta') Hasta:
+                td
+                    input#hasta(type='date' name='hasta')
+                    if errors.hasta
+                        small#hasta.text-danger = errors.hasta.message
+            tr
+                td
+                    label(for='bicicleta') Bicicleta:
+                td
+                    input#bicicleta(type='text' name='bicicleta')
+                    if errors.bicicleta
+                        small#bicicleta.text-danger = errors.bicicleta.message
+            tr
+                td
+                    label(for='usuario') Usuario:
+                td
+                    input#usuario(type='text' name='usuario' value= usuario._id readonly)
+                    if errors.usuario
+                        small#usuario.text-danger = errors.usuario.message
+            tr
+                td 
+                td
+                    input.btn(type='submit' value='OK')
