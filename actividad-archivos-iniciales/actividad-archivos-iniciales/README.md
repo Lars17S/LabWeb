@@ -13,4 +13,6 @@ NOTA: La verificación se puede hacer usando el servicio de Ethereal Email.
 - pass: EUW9777erTFCQBYFaW
 
 # Persistencia en MongoDB
-Los usuarios y bicicletas persisten en mongo db. Recuerda verificar que mongo esté habilitado en "mongodb://localhost:27017/red_bicicletas".
+- Los usuarios y bicicletas persisten en mongodb. Recuerda verificar que mongo esté habilitado en "mongodb://localhost:27017/red_bicicletas".
+- Para crear una reservación para un usuario debes ingresar a home > usuarios > crear reservacion y posteriormente llenar el formato.
+- Para ver el listado de reservaciones debes ingresar a home > reservas.
